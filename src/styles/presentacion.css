@@ -6,22 +6,104 @@
   grid-template-areas:
     "hola hola foto"
     "carrusel carrusel foto"
+    "carrusel carrusel foto"
     "frase frase foto"
-    "contacto contacto foto";
+    "contacto contacto contacto";
+  padding: 7% 0%;
 }
 
 .presentacion-nombre {
   grid-area: hola;
+  display: flex;
+  height: 4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 1.4rem;
+  font-family: __Kumbh_Sans_e16533, __Kumbh_Sans_Fallback_e16533, sans-serif;
+  padding: 0% 10%;
 }
+
 .presentacion-titulos {
   grid-area: carrusel;
+  position: relative;
+  width: 92%; /* o lo que necesites */
+  justify-self: center;
+  height: 5rem;
+  overflow: hidden;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  align-self: center;
 }
+
+.presentacion-titulos span {
+  position: absolute;
+  left: 20%;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slide 8s infinite; /* Incrementa la duración de la animación */
+  white-space: nowrap;
+  text-shadow: 12px 15px 20px rgb(100, 17, 114);
+}
+
+.presentacion-titulos span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.presentacion-titulos span:nth-child(2) {
+  animation-delay: 4s; /* Ajusta el retraso para que coincida con la nueva duración */
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
 .presentacion-frase {
   grid-area: frase;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.8rem;
+  width: 70%;
 }
+
 .presentacion-contactos {
   grid-area: contacto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 6%;
+  gap: 3%;
 }
 .presentacion-foto {
   grid-area: foto;
+}
+
+.presentacion-foto img {
+  width: 87%;
+  border-radius: 20px;
+  border: 2px solid rgb(100, 17, 114);
+  box-shadow: 15px 10px 75px rgb(93, 13, 110);
 }

@@ -1,26 +1,31 @@
-
 header {
+  width: 100%;
   background-color: #333;
   color: white;
-  padding: 10px 0;
+  padding: 1% 0%;
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .contenedor-elementos {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 3svh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3svh;
 }
 
 .nombre-completo {
-    font-size: 18px;
-    justify-content: center;
-    align-content: center;
+  font-size: 18px;
+  justify-content: center;
+  align-content: center;
 }
 
-.nombre-completo a{
-    color: white;
-    text-decoration: none;
+.nombre-completo a {
+  color: white;
+  text-decoration: none;
 }
 
 ul {
@@ -34,16 +39,16 @@ ul {
 }
 
 li {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
 }
 
-li a{
-    color: rgb(210, 181, 230);
-    text-decoration: none;
+li a {
+  color: rgb(210, 181, 230);
+  text-decoration: none;
 }
 
 li a:hover {
-    color: blueviolet;
+  color: blueviolet;
 }

@@ -1,0 +1,9 @@
+.botones{
+    text-transform: none;
+    justify-content: center;
+    display: flex;
+    align-self: center;
+    gap: 2% !important;
+    flex-direction: column;
+    color: rgb(100, 17, 114) !important;   
+}

@@ -1,0 +1,23 @@
+
+.lista-educacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lista-educacion li{
+    width: 200%;
+    color: black;
+    background-color: yellow;
+}
+
+.lista-educacion p{
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.titulo{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
