@@ -1,0 +1,27 @@
+.contenedor-presentacion {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "hola hola foto"
+    "carrusel carrusel foto"
+    "frase frase foto"
+    "contacto contacto foto";
+}
+
+.presentacion-nombre {
+  grid-area: hola;
+}
+.presentacion-titulos {
+  grid-area: carrusel;
+}
+.presentacion-frase {
+  grid-area: frase;
+}
+.presentacion-contactos {
+  grid-area: contacto;
+}
+.presentacion-foto {
+  grid-area: foto;
+}
