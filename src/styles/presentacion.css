@@ -1,3 +1,7 @@
+h3{
+  color: white;
+}
+
 .contenedor-presentacion {
   width: 100%;
   display: grid;
@@ -46,6 +50,7 @@
   animation: slide 8s infinite; /* Incrementa la duración de la animación */
   white-space: nowrap;
   text-shadow: 12px 15px 20px rgb(100, 17, 114);
+  color: white;
 }
 
 .presentacion-titulos span:nth-child(1) {
@@ -102,7 +107,7 @@
 }
 
 .presentacion-foto img {
-  width: 87%;
+  width: 43dvh;
   border-radius: 20px;
   border: 2px solid rgb(100, 17, 114);
   box-shadow: 15px 10px 75px rgb(93, 13, 110);
