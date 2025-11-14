@@ -12,7 +12,7 @@ export const Presentacion = () => {
     if (enlace.startsWith("mailto:")) {
       const email = enlace.replace("mailto:", "");
       navigator.clipboard.writeText(email).then(() => {
-        toast.success("Correo copiado al portapapeles: " + email, {
+        toast.success("Correo copiado al portapapeles y redirigiendo: " + email, {
           position: "bottom-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -24,6 +24,7 @@ export const Presentacion = () => {
           transition: Slide,
         });
       });
+      window.open(enlace, "");
     } else {
       window.open(enlace, "_blank");
     }
@@ -53,17 +54,17 @@ export const Presentacion = () => {
           onClick={() => handleClick("mailto:catybusvaz2@gmail.com")}
         />
         <BotonesDatos icono={ContactPageIcon} enlace="" texto="Curriculum" />
-        <BotonesDatos icono={GitHubIcon} enlace="" texto="Catyvaz" />
+        <BotonesDatos icono={GitHubIcon} enlace="https://github.com/Catyvaz" texto="Catyvaz" />
         <BotonesDatos
           icono={LinkedInIcon}
-          enlace=""
+          enlace="https://www.linkedin.com/in/catherine-bustos-vazquez-82479b232"
           texto="Catherine Bustos Vazquez"
         />
       </div>
 
       <div className="presentacion-foto">
         <img
-          src="public/imagenPortada.jpg"
+          src="/imagenPortada.jpg"
           alt="Foto de perfil"
           className="imagenPerfil"
         />

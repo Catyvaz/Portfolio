@@ -26,11 +26,12 @@ export const proyectos: ProyectoProps[] = [
   },
   {
     id: 2,
-    titulo: "Proyecto 2",
-    descripcionCorta: "Descripción breve del segundo proyecto",
-    descripcionCompleta: "Descripción detallada del segundo proyecto con todas sus características y funcionalidades.",
-    imagen: "/imagenes/proyecto2.jpg",
+    titulo: "Mi Alquiler",
+    descripcionCorta: "Sistema de Gestión de Alquileres Temporales",
+    descripcionCompleta: "Sistema web que permite la gestión y organización de complejos de alquiler temporal. Permite a los administradores gestionar propiedades, reservas y clientes, mientras que los usuarios pueden buscar y reservar alojamientos de manera sencilla.",
+    imagen: "/proyectos/sistemaMiAlquiler.png",
     video: "/videos/proyecto2-demo.mp4",
-    tecnologias: ["Node.js", "MongoDB", "Express"],
+    tecnologias: ["Node js","Nest js", "MySQL" ,"MongoDB", "Express", "React", "TypeScript", "Material-UI", "JavaScript" ],
+    demoUrl: "https://mi-alquiler.vercel.app/",
   }
 ];

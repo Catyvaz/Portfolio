@@ -2,21 +2,19 @@ import "../styles/navbar.css";
 
 export const Navbar = () => {
   return (
-    <header>
-      <div className="px-3 py-2 border-bottom">
-        <div className="container-fluid">
-          <div className="contenedor-elementos d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <div className="nombre-completo">
-              <a
-                href="/"
-                className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
-              >
-                Catherine Bustos Vazquez
-              </a>
-            </div>
+    <div className="navbar">
+      <div className="contenedor-elementos">
+        <div className="nombre-completo">
+          <a
+            href="/"
+            className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+          >
+            Catherine Bustos Vazquez
+          </a>
+        </div>
 
-            <div>
-              <ul className="barra-opciones nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+        <div className="elementos-lista">
+          <ul className="barra-opciones">
                 <li>
                   <a href="#inicio" className="nav-element text-secondary">
                     {" "}
@@ -48,10 +46,8 @@ export const Navbar = () => {
                   </a>
                 </li>
               </ul>
-            </div>
-          </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };

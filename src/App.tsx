@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="contenedor-contenido" style={{ paddingTop: '80px' }}>
+      <div className="contenedor-contenido">
         <Presentacion />
         < SobreMi/>
         <Tecnologias />

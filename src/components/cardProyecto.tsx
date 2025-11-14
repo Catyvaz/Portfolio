@@ -27,6 +27,9 @@ export const CardProyecto = (props: CardProyectoProps) => {
         maxWidth: 345,
         cursor: "pointer",
         "&:hover": { transform: "scale(1.05)", transition: "transform 0.3s" },
+        backgroundColor: "black",
+        border: "purple 1px solid",
+        borderRadius: "15px",
       }}
       onClick={() => props.abrirModal(props.proyecto)}
     >
@@ -37,7 +40,7 @@ export const CardProyecto = (props: CardProyectoProps) => {
         alt={props.proyecto.titulo}
       />
       <CardContent>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'white' }}>
           <Typography gutterBottom variant="h5" component="div">
             {props.proyecto.titulo}
           </Typography>
@@ -50,20 +53,19 @@ export const CardProyecto = (props: CardProyectoProps) => {
                       />
                     )}
         </div>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2, color: 'white' }}>
           {props.proyecto.descripcionCorta}
         </Typography>
 
-        {/* Chips de tecnologías */}
         <Box display="flex" flexWrap="wrap" gap={1}>
           {props.proyecto.tecnologias.map((tech, index) => (
-            <Chip key={index} label={tech} size="small" variant="outlined" />
+            <Chip key={index} label={tech} size="small" variant="outlined" style={{color: "white"}}/>
           ))}
         </Box>
 
         <Box display="flex" alignItems="center" mt={2}>
           <PlayArrowIcon color="primary" />
-          <Typography variant="caption" ml={1}>
+          <Typography variant="caption" ml={1} color="white">
             Click para ver detalles y video
           </Typography>
         </Box>

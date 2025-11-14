@@ -1,18 +1,18 @@
-.contenedor-sobre-mi{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0% 7%;
+.contenedor-sobre-mi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2% 5%;
+  background-color: rgb(47, 38, 51);
+  border-radius: 50px 0;
 }
 
-.lista-sobre-mi{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
+.lista-sobre-mi {
+  display: flex;
+  flex-direction: column;
 }
 
-.lista-sobre-mi li{
-    color: black;
+.lista-sobre-mi li {
+  color: rgb(255, 255, 255);
 }
-

@@ -1,86 +1,108 @@
 import "../styles/educacion.css";
-import { 
-  Typography, 
-  Card, 
-  CardContent, 
-  Box, 
-  Chip,
-  Divider,
-  Stack
-} from '@mui/material';
-import SchoolIcon from '@mui/icons-material/School';
-import WorkIcon from '@mui/icons-material/Work';
-import LanguageIcon from '@mui/icons-material/Language';
+import { Typography, Box, Chip, Paper, Stack } from "@mui/material";
+import Timeline from "@mui/lab/Timeline";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineContent from "@mui/lab/TimelineContent";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import TimelineDot from "@mui/lab/TimelineDot";
+import SchoolIcon from "@mui/icons-material/School";
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import TranslateIcon from "@mui/icons-material/Translate";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import { educacionData } from "../const/listaEducación";
 
 export const Educacion = () => {
-  const getIcon = (tipo: string) => {
+  const getChipColor = (estado?: string) =>
+    estado === "En curso" ? "primary" : "success";
+
+  const getTipoIcon = (tipo: string) => {
     switch (tipo) {
-      case 'carrera': return <SchoolIcon sx={{ color: "blueviolet" }} />;
-      case 'curso': return <WorkIcon sx={{ color: "blueviolet" }} />;
-      case 'idioma': return <LanguageIcon sx={{ color: "blueviolet" }} />;
-      default: return <SchoolIcon sx={{ color: "blueviolet" }} />;
+      case "carrera":
+        return <SchoolIcon fontSize="small" />;
+      case "curso":
+        return <WorkspacePremiumIcon fontSize="small" />;
+      case "idioma":
+        return <TranslateIcon fontSize="small" />;
+      default:
+        return <RocketLaunchIcon fontSize="small" />;
     }
   };
 
-  const getColorChip = (estado?: string) => {
-    return estado === "En curso" ? "primary" : "success";
+  const extractPrimaryYear = (periodo: string) => {
+    const match = periodo.match(/\d{4}/);
+    return match ? match[0] : periodo;
   };
 
   return (
-    <section id="educacion" style={{ width: '80%', margin: '0 auto', padding: '40px 0' }}>
-      <h2>
-        Mi Educación
-      </h2>
-      <Stack spacing={2}>
-        {educacionData.map((item, index) => (
-          <Card key={index} elevation={3} sx={{ 
-            '&:hover': { 
-              transform: 'translateY(-2px)', 
-              transition: 'transform 0.3s',
-              boxShadow: 6
-            } 
-          }}>
-            <CardContent>
-              <Box display="flex" alignItems="flex-start" gap={2}>
-                <Box sx={{ pt: 0.5 }}>
-                  {getIcon(item.tipo)}
-                </Box>
-                
-                <Box flex={1}>
-                  <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={1}>
-                    <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold', color:"blueviolet" }}>
-                      {item.titulo}
-                    </Typography>
-                    {item.estado && (
-                      <Chip 
-                        label={item.estado} 
-                        size="medium" 
-                        color={getColorChip(item.estado)}
-                        variant="filled"
-                      />
-                    )}
-                  </Box>
+    <section id="educacion" className="educacion-section">
+      <div className="educacion-header">
+        <h2>Educación</h2>
+      </div>
 
-                  
-                  <Typography variant="subtitle1" sx={{ fontWeight: 'medium', color: 'black', mb: 1 }}>
-                    📅 {item.periodo}  /  📍 {item.institucion}
-                  </Typography>
-                  
-                  {item.descripcion && (
-                    <>
-                      <Divider sx={{ my: 1 }} />
-                      <Typography variant="body2" sx={{ color: '#555', fontStyle: 'italic' }}>
+      <Timeline position="right" className="educacion-timeline">
+        {educacionData.map((item, index) => {
+          const isLast = index === educacionData.length - 1;
+          const isInProgress = item.estado === "En curso";
+
+          return (
+            <TimelineItem key={`${item.titulo}-${item.periodo}`}>
+              <TimelineOppositeContent className="educacion-periodo">
+                <Typography variant="body2" color="text.secondary">
+                  {extractPrimaryYear(item.periodo)}
+                </Typography>
+                <Typography variant="subtitle2">{item.periodo}</Typography>
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot
+                  className={`educacion-dot ${isInProgress ? "dot-active" : "dot-complete"}`}
+                >
+                  {getTipoIcon(item.tipo)}
+                </TimelineDot>
+                {!isLast && <TimelineConnector className="educacion-connector" />}
+              </TimelineSeparator>
+              <TimelineContent className="educacion-content">
+                <Paper elevation={0} className="educacion-card">
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="flex-start"
+                    gap={2}
+                    className="educacion-card-header"
+                  >
+                    <Box className="educacion-card-details">
+                      <Typography variant="h6" className="educacion-titulo">
+                        {item.titulo}
+                      </Typography>
+                      <Typography variant="subtitle2" className="educacion-institucion">
+                        {item.institucion}
+                      </Typography>
+                      <Typography variant="subtitle2" className="educacion-descripcion">
                         {item.descripcion}
                       </Typography>
-                    </>
-                  )}
-                </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        ))}
-      </Stack>
+                    </Box>
+                    <Chip
+                      label={item.estado ?? "Completado"}
+                      color={getChipColor(item.estado)}
+                      size="small"
+                      icon={
+                        isInProgress ? (
+                          <PendingActionsIcon fontSize="small" />
+                        ) : (
+                          <CheckCircleOutlineIcon fontSize="small" />
+                        )
+                      }
+                    />
+                  </Stack>
+                </Paper>
+              </TimelineContent>
+            </TimelineItem>
+          );
+        })}
+      </Timeline>
     </section>
   );
 };
